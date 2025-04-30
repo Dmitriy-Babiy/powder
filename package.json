@@ -1,0 +1,11 @@
+{
+  "name": "powder",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/frontend"
+  }
+}
