@@ -6,6 +6,10 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace apps/frontend"
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^1.10.0"
   }
 }
