@@ -6,8 +6,12 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build"
+    "dev:all": "turbo run dev",
+    "dev:frontend": "turbo run dev --filter=frontend",
+    "dev:backend": "turbo run dev --filter=backend",
+    "build:all": "turbo run build",
+    "build:frontend": "turbo run build --filter=frontend",
+    "build:backend": "turbo run build --filter=backend"
   },
   "devDependencies": {
     "turbo": "^1.10.0"

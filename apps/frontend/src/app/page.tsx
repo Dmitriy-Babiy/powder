@@ -1,95 +1,121 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
-export default function Home() {
+const POSTS = [
+  {
+    date: '03. ФЕВ 2025',
+    title: 'Современные подходы к разработке UI компонентов',
+    description:
+      'Исследуем лучшие практики создания переиспользуемых компонентов с использованием React и TypeScript.',
+  },
+  {
+    date: '01. ФЕВ 2025',
+    title: 'Оптимизация производительности веб-приложений',
+    description:
+      'Разбираем основные техники оптимизации и инструменты для улучшения производительности React приложений.',
+  },
+  {
+    date: '01. ФЕВ 2025',
+    title: 'Оптимизация производительности веб-приложений',
+    description:
+      'Разбираем основные техники оптимизации и инструменты для улучшения производительности React приложений.',
+  },
+  {
+    date: '01. ФЕВ 2025',
+    title: 'Оптимизация производительности веб-приложений',
+    description:
+      'Разбираем основные техники оптимизации и инструменты для улучшения производительности React приложений.',
+  },
+  {
+    date: '01. ФЕВ 2025',
+    title: 'Оптимизация производительности веб-приложений',
+    description:
+      'Разбираем основные техники оптимизации и инструменты для улучшения производительности React приложений.',
+  },
+];
+
+const PROJECTS = [
+  {
+    date: '2024',
+    title: 'E-commerce платформа',
+    description:
+      'Современный интернет-магазин с использованием Next.js, TypeScript и Tailwind CSS.',
+  },
+  {
+    date: '2023',
+    title: 'Система управления задачами',
+    description:
+      'Веб-приложение для управления проектами с drag-and-drop интерфейсом и real-time обновлениями.',
+  },
+  {
+    date: '2023',
+    title: 'Платформа для онлайн-обучения',
+    description:
+      'Интерактивная платформа для проведения онлайн-курсов с видео-контентом и тестами.',
+  },
+  {
+    date: '2022',
+    title: 'Мобильное приложение для фитнеса',
+    description:
+      'React Native приложение для отслеживания тренировок и питания с интеграцией с фитнес-трекерами.',
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+      <section aria-label="Главный экран" className="container pt-10!">
+        <h1 className="max-w-4xl text-8xl font-bold uppercase">
+          Frontend & <span className="text-blue-500">creative</span> coding
+        </h1>
+        <p className="mt-3 max-w-lg text-xl font-light text-balance text-neutral-400 dark:text-neutral-500">
+          Разработка функциональных пользовательских интерфейсов с применением передовых технологий.
+        </p>
+      </section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <section aria-label="Блог" className="container pt-16!">
+        <h2 className="text-3xl font-bold">Блог</h2>
+        <div className="-mx-10 mt-6 grid grid-cols-2">
+          {POSTS.slice(0, 3).map((post, index) => (
+            <a className={cn(index === 0 && 'col-span-2 mb-10')} key={post.title} href="#">
+              <Card>
+                <time className="text-sm text-neutral-400 dark:text-neutral-500">{post.date}</time>
+                <h3 className="mt-2 text-xl font-semibold group-hover:text-blue-500">
+                  {post.title}
+                </h3>
+                <p className="mt-2 text-neutral-400 dark:text-neutral-500">{post.description}</p>
+              </Card>
+            </a>
+          ))}
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <Link href="/blog">
+          <Button className="mt-10 mb-24">Посмотреть все посты</Button>
+        </Link>
+      </section>
+
+      <section aria-label="Проекты" className="container">
+        <h2 className="text-3xl font-bold">Проекты</h2>
+        <div className="-mx-10 mt-6 grid grid-cols-2">
+          {PROJECTS.slice(0, 2).map((project) => (
+            <a key={project.title} href="#">
+              <Card>
+                <time className="text-sm text-neutral-400 dark:text-neutral-500">
+                  {project.date}
+                </time>
+                <h3 className="mt-2 text-xl font-semibold group-hover:text-blue-500">
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-neutral-400 dark:text-neutral-500">{project.description}</p>
+              </Card>
+            </a>
+          ))}
+        </div>
+        <Link href="/projects">
+          <Button className="mt-10 mb-24">Посмотреть все проекты</Button>
+        </Link>
+      </section>
+    </main>
   );
 }
