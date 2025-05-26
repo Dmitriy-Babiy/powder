@@ -1,0 +1,46 @@
+@use '../../styles/utils' as utils;
+
+.header {
+  .container {
+    @include utils.container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .themeSwitch {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      background-color: transparent;
+      align-items: center;
+      border: unset;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 250ms;
+
+      &:hover {
+        &::before {
+          transform: scale(1);
+          border-color: var(--primary-color);
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 1px solid transparent;
+        transition: all 250ms;
+        border-radius: 100%;
+        transform: scale(0);
+      }
+    }
+  }
+}

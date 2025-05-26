@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Pixelify_Sans } from 'next/font/google';
-import './globals.css';
 import { Providers } from './providers';
 import { Footer, Header } from '@/components';
+import '@/styles/globals.scss';
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ['300', '400', '500', '600', '700'],
